@@ -1,6 +1,7 @@
 document.addEventListener("DOMContentLoaded", function () {
   // DOM Elements
   const popup = document.querySelector(".app__popup");
+  const overlay = document.querySelector(".overlay");
   const closePopup = document.querySelector("#close-popup");
   const contentItems = document.querySelectorAll(".app__content-item");
   const formPopup = document.querySelector("#popup-form");
@@ -9,27 +10,15 @@ document.addEventListener("DOMContentLoaded", function () {
   if (contentItems) {
     contentItems.forEach((item) => {
       const heading = item.querySelector(".content-item-heading");
-      const icon = heading.querySelector(".content-item-heading__icon");
+
       heading.addEventListener("click", () => {
         contentItems.forEach((otherItem) => {
           if (otherItem !== item && otherItem.classList.contains("active")) {
             otherItem.classList.remove("active");
-            const otherIcon = otherItem.querySelector(
-              ".content-item-heading__icon"
-            );
-            if (otherIcon) {
-              otherIcon.innerHTML = '<i class="fa-solid fa-plus"></i>';
-            }
           }
         });
 
         item.classList.toggle("active");
-
-        if (item.classList.contains("active")) {
-          icon.innerHTML = '<i class="fa-solid fa-minus"></i>';
-        } else {
-          icon.innerHTML = '<i class="fa-solid fa-plus"></i>';
-        }
       });
     });
   }
@@ -54,16 +43,23 @@ document.addEventListener("DOMContentLoaded", function () {
 
   if (getCookie("popupDisplayed") !== "true") {
     popup.style.visibility = "visible";
+    overlay.style.display = "block";
   } else {
     popup.style.visibility = "hidden";
+    overlay.style.display = "none";
   }
 
   // handle close popup
-
   function handleClosePopup() {
     popup.style.visibility = "hidden";
+    overlay.style.display = "none";
     setCookie("popupDisplayed", "true", 7);
   }
+
+  // eventListener
+  overlay.addEventListener("click", function () {
+    handleClosePopup();
+  });
 
   closePopup.addEventListener("click", function () {
     handleClosePopup();

@@ -6,14 +6,6 @@
     <meta name="viewport" content="width=device-width,initial-scale=1">
     <meta name="theme-color" content="">
     <link rel="canonical" href="{{ canonical_url }}">
-    <link rel="stylesheet" href="{{ 'faq-v2-styling.css' | asset_url }}">
-    <link
-      rel="stylesheet"
-      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.1/css/all.min.css"
-      integrity="sha512-5Hs3dF2AEPkpNAR7UiOHba+lRSJNeM2ECkwxUIxC1Q/FLycGTbNapWXB4tP889k5T5Ju8fs4b1P5z/iB4nMfSQ=="
-      crossorigin="anonymous"
-      referrerpolicy="no-referrer"
-    >
 
     {%- if settings.favicon != blank -%}
       <link rel="icon" type="image/png" href="{{ settings.favicon | image_url: width: 32, height: 32 }}">
@@ -307,28 +299,6 @@
   </head>
 
   <body class="gradient{% if settings.animations_hover_elements != 'none' %} animate--hover-{{ settings.animations_hover_elements }}{% endif %}">
-    <div class="app">
-      <h1 class="app__heading">FAQs on Design & Development</h1>
-      <ul class="app__content"></ul>
-      <div class="app__popup">
-        <div class="popup-container">
-          <div class="popup-container__img">
-            <img width="100%" height="100%" src="{{ 'popup_img.jpg' | asset_url }}" alt="Popup Image">
-          </div>
-          <div class="popup-container__text">
-            <div class="popup-container__text-content">
-              <h1>Stay updated.</h1>
-              <h3>Enter your email below to join our awesome mailing list.</h3>
-              <form id="popup-form" action="">
-                <input required type="email" placeholder="Your email">
-                <button type="submit">Submit</button>
-              </form>
-              <a id="close-popup" href="#">No thanks</a>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
     <a class="skip-to-content-link button visually-hidden" href="#MainContent">
       {{ 'accessibility.skip_to_text' | t }}
     </a>
@@ -402,7 +372,5 @@
     {%- if settings.cart_type == 'drawer' -%}
       <script src="{{ 'cart-drawer.js' | asset_url }}" defer="defer"></script>
     {%- endif -%}
-    <script defer src="{{ 'main.js' | asset_url }}"></script>
-    <script defer src="{{ 'question_data.js' | asset_url }}"></script>
   </body>
 </html>

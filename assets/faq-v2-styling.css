@@ -11,10 +11,9 @@ ul {
 .app {
   background-color: #f1f3fe;
   padding-top: 20px;
+  padding-bottom: 100px;
   width: 100%;
-  min-height: 900px;
-  height: 100vh;
-
+  height: auto;
 }
 
 .app__heading {
@@ -41,9 +40,43 @@ ul {
   font-weight: bold;
   color: #000;
 }
+
 .content-item-heading__icon {
-  font-size: 28px;
+  display: inline-block;
+  width: 16px;
+  height: 16px;
+  position: relative;
   cursor: pointer;
+  transition: transform 0.3s ease;
+}
+
+.content-item-heading__icon::before,
+.content-item-heading__icon::after {
+  content: "";
+  position: absolute;
+  background-color: #333;
+  transition: all 0.3s ease;
+}
+
+.content-item-heading__icon::before {
+  top: 50%;
+  left: 0;
+  right: 0;
+  height: 2px;
+  margin-top: -1px;
+}
+
+.content-item-heading__icon::after {
+  left: 50%;
+  top: 0;
+  bottom: 0;
+  width: 2px;
+  margin-left: -1px;
+}
+
+.app__content-item.active .content-item-heading__icon::after {
+  opacity: 0;
+  transform: scale(0);
 }
 
 .content-item-heading:hover {
@@ -88,8 +121,7 @@ ul {
 
 /*Popup*/
 
-.app__popup::before {
-  content: "";
+.overlay {
   position: fixed;
   top: 0;
   left: 0;
@@ -114,12 +146,14 @@ ul {
   z-index: 9999;
   transform: translate(-50%, -50%);
   background-color: #fff;
+  box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
   animation: popupFadeIn 0.5s ease-out forwards;
 }
 
 .popup-container__img {
   flex: 1;
 }
+
 .popup-container__img img {
   width: 100%;
   height: 100%;
@@ -163,7 +197,6 @@ ul {
   margin-top: 16px;
   color: rgb(63, 61, 61);
 }
-
 
 @keyframes fadeIn {
   0% {

@@ -1,0 +1,82 @@
+{{ 'faq-v2-styling.css' | asset_url | stylesheet_tag }}
+<script defer src="{{ 'main.js' | asset_url }}"></script>
+
+<div class="app">
+  <h1 class="app__heading">{{ section.settings['header-title'] }}</h1>
+  <ul class="app__content">
+    {% for block in section.blocks %}
+      {% if block.type == 'Question-list' %}
+        <li class="app__content-item">
+          <div class="content-item-heading">
+            {{ block.settings['header-question'] }}
+            <span class="content-item-heading__icon"></span>
+          </div>
+          <div class="content-item-main">
+            <div class="content-item-main__heading">
+              {{ block.settings['header-question-title'] }}
+            </div>
+            <ul class="content-item-main__text">
+              <li class="content-item-main__text-item">
+                {{ block.settings['header-question-answer'] }}
+              </li>
+            </ul>
+          </div>
+        </li>
+      {% endif %}
+    {% endfor %}
+  </ul>
+</div>
+
+{% schema %}
+{
+  "name": "faq",
+  "tag": "section",
+  "class": "faq",
+  "settings": [
+    {
+      "id": "header-title",
+      "type": "text",
+      "default": "FAQs on Design & Development",
+      "label": "Question heading"
+    }
+  ],
+
+  "blocks": [
+    {
+      "name": "Question item",
+      "type": "Question-list",
+      "settings": [
+        {
+          "id": "header-question",
+          "type": "text",
+          "label": "Question",
+          "default": "1. How much does a new website cost?"
+        },
+        {
+          "id": "header-question-title",
+          "type": "text",
+          "label": "Answer heading",
+          "default": "Interdum velit euismod in pellentesque massa placerat duis."
+        },
+        {
+          "type": "richtext",
+          "id": "header-question-answer",
+          "label": "Answer description",
+          "default": "<p>- Mattis nunc sed blandit libero volutpat.</p>"
+        }
+      ]
+    }
+  ],
+
+  "presets": [
+    {
+      "name": "Faq",
+      "blocks": [
+        {
+          "type": "Question-list"
+        }
+      ]
+    }
+  ]
+}
+{% endschema %}
