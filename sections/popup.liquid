@@ -1,0 +1,66 @@
+{{ 'faq-v2-styling.css' | asset_url | stylesheet_tag }}
+<script defer src="{{ 'main.js' | asset_url }}"></script>
+
+<div class="app__popup">
+  <div class="overlay">o</div>
+  <div class="popup-container">
+    <div class="popup-container__img">
+      {{ section.settings['popup-img'] | image_url: width: 666 | image_tag }}
+    </div>
+    <div class="popup-container__text">
+      <div class="popup-container__text-content">
+        <h1>{{ section.settings['popup-title'] }}</h1>
+        <h3>{{ section.settings['popup-des'] }}</h3>
+        <form id="popup-form" action="">
+          <input required type="email" placeholder="Your email">
+          <button type="submit">{{ section.settings['popup-btn'] }}</button>
+        </form>
+        <a id="close-popup" href="#">{{ section.settings['popup-link'] }}</a>
+      </div>
+    </div>
+  </div>
+</div>
+
+{% schema %}
+{
+  "name": "Popup",
+  "tag": "section",
+  "class": "popup",
+  "settings": [
+    {
+      "id": "popup-img",
+      "type": "image_picker",
+      "label": "Image"
+    },
+    {
+      "id": "popup-title",
+      "type": "text",
+      "label": "Title",
+      "default": "Stay updated."
+    },
+    {
+      "id": "popup-des",
+      "type": "textarea",
+      "label": "Description",
+      "default": "Enter your email below to join our awesome mailing list."
+    },
+    {
+      "id": "popup-btn",
+      "type": "text",
+      "label": "Button",
+      "default": "Submit"
+    },
+    {
+      "id": "popup-link",
+      "type": "text",
+      "label": "Button link",
+      "default": "No thanks"
+    }
+  ],
+  "presets": [
+    {
+      "name": "Popup"
+    }
+  ]
+}
+{% endschema %}
