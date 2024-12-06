@@ -53,10 +53,59 @@
         "padding_top": 20,
         "padding_bottom": 20
       }
+    },
+    "faqs_j6qDqd": {
+      "type": "faqs",
+      "blocks": {
+        "question_list_6yaVfD": {
+          "type": "Question-list",
+          "settings": {
+            "header-question": "1. How much does a new website cost?",
+            "header-question-title": "Interdum velit euismod in pellentesque massa placerat duis.",
+            "header-question-answer": "<p>- Mattis nunc sed blandit libero volutpat.</p>"
+          }
+        },
+        "question_list_HErezR": {
+          "type": "Question-list",
+          "settings": {
+            "header-question": "1. How much does a new website cost?",
+            "header-question-title": "Interdum velit euismod in pellentesque massa placerat duis.",
+            "header-question-answer": "<p>- Mattis nunc sed blandit libero volutpat.</p>"
+          }
+        },
+        "question_list_QLiT3G": {
+          "type": "Question-list",
+          "settings": {
+            "header-question": "1. How much does a new website cost?",
+            "header-question-title": "Interdum velit euismod in pellentesque massa placerat duis.",
+            "header-question-answer": "<p>- Mattis nunc sed blandit libero volutpat.</p>"
+          }
+        }
+      },
+      "block_order": [
+        "question_list_6yaVfD",
+        "question_list_HErezR",
+        "question_list_QLiT3G"
+      ],
+      "settings": {
+        "header-title": "FAQs on Design & Development"
+      }
+    },
+    "popup_zriWcY": {
+      "type": "popup",
+      "settings": {
+        "popup-img": "shopify://shop_images/popup_img.jpg",
+        "popup-title": "Stay updated.",
+        "popup-des": "Enter your email below to join our awesome mailing list.",
+        "popup-btn": "Submit",
+        "popup-link": "No thanks"
+      }
     }
   },
   "order": [
     "announcement-bar",
-    "header"
+    "header",
+    "faqs_j6qDqd",
+    "popup_zriWcY"
   ]
 }
